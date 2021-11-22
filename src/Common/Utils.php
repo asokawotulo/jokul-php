@@ -4,12 +4,19 @@ namespace Jokul\Common;
 
 class Utils
 {
-	public static function generateSignature($secretKey, $headers, $requestTarget, $body = null)
+	public static function generateSignature(
+		$secretKey,
+		$clientId,
+		$requestId,
+		$requestTimestamp,
+		$requestTarget,
+		$body = null
+	)
 	{
 		$signatureArray = [
-			'Client-Id:' . $headers['Client-Id'],
-			'Request-Id:' . $headers['Request-Id'],
-			'Request-Timestamp:' . $headers['Request-Timestamp'],
+			'Client-Id:' . $clientId,
+			'Request-Id:' . $requestId,
+			'Request-Timestamp:' . $requestTimestamp,
 			'Request-Target:' . $requestTarget,
 		];
 

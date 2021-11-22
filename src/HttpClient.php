@@ -31,7 +31,9 @@ class HttpClient
 		$headers = $this->_setDefaultHeaders();
 		$headers['Signature'] = Utils::generateSignature(
 			Jokul::getSecretKey(),
-			$headers,
+			$headers['Client-Id'],
+			$headers['Request-Id'],
+			$headers['Request-Timestamp'],
 			$url,
 			json_encode($params),
 		);
