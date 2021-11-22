@@ -7,3 +7,7 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# PHPUnit
+/.phpunit.cache
+.phpunit.result.cache
