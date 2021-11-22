@@ -43,15 +43,11 @@ $clientId = Jokul::getClientId();
 $requestId = Utils::generateRequestId();
 $requestTimestamp = Utils::generateRequestTimestamp();
 
-$headers = [
-	'Client-Id' => $clientId,
-	'Request-Id' => $requestId,
-	'Request-Timestamp' => $requestTimestamp,
-];
-
 $signature = Utils::generateSignature(
 	$secretKey,
-	$headers,
+	$clientId,
+	$requestId,
+	$requestTimestamp,
 	$requestTarget,
 );
 ```
